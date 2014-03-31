@@ -1,0 +1,121 @@
+@import url(http://fonts.googleapis.com/css?family=Cardo);
+
+// Colors
+$dark-blue            : #09031a;
+$dark-green           : #084041;
+$light-green          : #aeccc7;
+$purple               : #4d103b;
+$yellow               : #c4a52e;
+
+// FONTS
+$serif                : 'Cardo', serif;
+$sans-serif           : 'Open Sans', sans-serif;
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin prefix ($property, $value,
+                 $moz:    true,
+                 $webkit: true,
+                 $o:      false,
+                 $ms:     true,
+                 $spec:   true) {
+    @if $moz    {    -moz-#{$property}: $value; }
+    @if $webkit { -webkit-#{$property}: $value; }
+    @if $o      {      -o-#{$property}: $value; }
+    @if $ms     {     -ms-#{$property}: $value; }
+    @if $spec   {         #{$property}: $value; }
+}
+
+@mixin keyframe ($animation_name) {
+    @-webkit-keyframes $animation_name {
+        @content;
+    }
+ 
+    @-moz-keyframes $animation_name {
+        @content;
+    }
+ 
+    @-o-keyframes $animation_name {
+        @content;
+    }
+ 
+    @keyframes $animation_name {
+        @content;
+    }
+}
+
+@mixin animation ($animate) {
+    -webkit-animation: $animate;
+    -moz-animation: $animate;
+    -o-animation: $animate;
+    animation: $animate;
+
+}
+
+
+body {
+  background: $dark-blue;
+  color: #fff;
+  font-family: $serif;
+  background: url(../../images/bg.jpg) fixed no-repeat;
+  @include prefix(background-size, cover);
+}
+
+.reveal h1 {
+  font-size: 80px;
+  padding-top: 10%;
+  position: relative;
+}
+
+.reveal h3 {
+  font-size: 20px;
+}
+
+iframe {
+  width: 80%;
+  background: #fff;
+  min-height: 900px;
+  margin: 0 auto;
+  margin-top: 20px !important;
+}
+
+img {
+  max-width: 1500px;
+  width: 100%;
+}
+.videoWrapper {
+}
+.videoWrapper iframe {
+  min-height: 600px !important;
+}
+
+.info-container {
+  width: 80%;
+  margin: 0 auto !important;
+}
+
+.logo {
+  float: left;
+  width: 50%;  
+  text-align: left;
+  img {
+    max-width: 300px;
+  }
+}
+
+.info {
+  float: left;
+  width: 50%;
+  margin-top: 60px !important;
+  text-align: right;
+}
